@@ -704,8 +704,8 @@ export const SHOOT = {
   }
  ],
  "slugs": {
-  "WK-3512": "light-wash-patch-jeans",
   "WK-3489": "glossy-black-lettered-puffer",
+  "WK-3512": "light-wash-patch-jeans",
   "WK-3485": "orange-and-teal-era-pullover",
   "WK-3601": "cream-and-blue-de-varsity-with-bear-back"
  }
