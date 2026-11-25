@@ -1,0 +1,165 @@
+/* Dope Era Universe V3: layered over universe.css + v2.css. Adds the Nov 22 shoot photography and the commerce
+   pages in the same material language (colorway panels, lining composition, hang tags, tilted photo cards, woven labels).
+   No new visual system: every rule below re-uses the V2 tokens (--p1..--p4, --bone, --ink, --noise, --display, --mono). */
+
+/* ---------- shared: tilted photo card (the white-bordered print used by .card--photo) ---------- */
+.v3-photo { margin: 0; position: relative; display: block; background: #f6f4ef; padding: 7px; box-shadow: 0 16px 30px rgba(0,0,0,.35); transform: rotate(var(--r, -2deg)); transition: transform .5s var(--bounce); }
+.v3-photo:hover { transform: rotate(0deg) translateY(-6px); }
+.v3-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; background: #e3dfd3; }
+.v3-photo figcaption { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #3a372f; padding: 8px 2px 2px; }
+.v3-ai { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; background: var(--ink); color: var(--bone); padding: 2px 6px; margin-right: 4px; vertical-align: 1px; }
+.v3-h3 { font-weight: 850; font-stretch: 112%; text-transform: uppercase; font-size: clamp(24px, 2.6vw, 40px); line-height: .95; margin: 12px 0 10px; }
+
+/* ---------- homepage: puffer feature gets the shoot (on-body) photos ---------- */
+.v3-onbody { display: flex; gap: 14px; align-items: flex-end; margin-top: 18px; }
+.v3-onbody .v3-photo { width: 92px; padding: 5px; }
+.v3-onbody .v3-photo figcaption { display: none; }
+.v3-onbody a.v3-onbody__go { font-family: var(--mono); font-size: 12.5px; color: inherit; text-underline-offset: 4px; margin-left: 4px; }
+.feature__shot { font-family: var(--mono); font-size: 12px; opacity: .8; margin-top: 16px; }
+
+/* ---------- homepage: rail end card + the look strip (dressed by the colorway) ---------- */
+.card--all .card__stage { background: var(--ink); }
+.card--all .card__stage::before { background: var(--p1); }
+.card--all .card__all { position: absolute; z-index: 1; left: 18px; right: 18px; bottom: 22px; color: var(--bone); font-weight: 900; font-stretch: 112%; text-transform: uppercase; font-size: clamp(28px, 3vw, 44px); line-height: .9; }
+.card--all .card__all small { display: block; font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .12em; margin-top: 10px; }
+.card--worn .card__img { inset: 4% 8% 0; width: 84%; height: 96%; object-position: 50% 100%; }
+.lookstrip { margin-top: clamp(56px, 7vw, 100px); }
+.lookstrip .rail__track > li { width: clamp(210px, 19vw, 270px); }
+.lookstrip .card__stage { background: var(--p1); }
+.lookstrip li:nth-child(3n+2) .card__stage { background: var(--p3); }
+.lookstrip li:nth-child(3n) .card__stage { background: var(--p2); }
+.lookstrip .card__stage::before { background: var(--p4); opacity: .9; }
+.lookstrip .card__img { inset: 3% 6% 0; width: 88%; height: 97%; object-position: 50% 100%; }
+.lookstrip .card__badge { background: var(--bone); color: var(--ink); }
+
+/* ---------- materials: denim skin for the new swatch ---------- */
+.colors[data-skin="denim"] { background-color: #142238; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 2px, transparent 2px 6px), repeating-linear-gradient(45deg, rgba(0,0,0,.18) 0 1px, transparent 1px 5px), radial-gradient(120% 80% at 70% 30%, #2c4a74, #0d1626 75%); }
+
+/* ---------- town: the crew in front of the mural wall (same loupe as the mural) ---------- */
+.town2__grid .ph:nth-child(6) { grid-column: 1 / -1; grid-row: span 2; cursor: crosshair; }
+.town2__grid .ph:nth-child(6) img { object-position: 50% 30%; }
+@media (max-width: 999px) { .town2__grid .ph:nth-child(6) { grid-column: 1 / -1; } .town2__grid .ph:nth-child(6) img { aspect-ratio: 1 / 1; } }
+
+/* ---------- finale: five tags ---------- */
+.tags--5 { grid-template-columns: repeat(5, 1fr); }
+.tags li:nth-child(5) .htag { --r: -1.5deg; }
+@media (max-width: 1180px) { .tags--5 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .tags--5 { grid-template-columns: 1fr; } }
+
+/* ---------- sub pages: lining-style chapter openers ---------- */
+.v3page .nav { position: sticky; top: 0; }
+.v3-head.hero.lining { height: clamp(560px, 78svh, 860px); min-height: 0; }
+.v3-head .lining__copy { top: 20%; }
+.v3-head .lining__copy .label a { color: inherit; text-decoration: none; }
+.v3-pdp.hero.lining { height: clamp(640px, 94svh, 980px); }
+.v3-pdp__title { font-size: clamp(36px, 4.4vw, 78px); }
+.v3-pdp__suit { top: 6%; width: min(44vw, 760px, 80vh); }
+.v3-pdp__suit img { aspect-ratio: 4 / 5; object-fit: contain; width: 100%; }
+.v3-pdp .labelbar__price { font-size: 18px; }
+.v3-stack { position: absolute; z-index: 3; right: 3vw; top: 8%; width: min(54vw, 900px); height: 84%; margin: 0; }
+.v3-stack__img { position: absolute; bottom: 0; width: 46%; height: auto; aspect-ratio: 4 / 5; object-fit: contain; filter: drop-shadow(0 30px 34px rgba(0,0,0,.55)); }
+.v3-stack__img--0 { left: 27%; z-index: 3; width: 52%; }
+.v3-stack__img--1 { left: 0; bottom: 6%; transform: rotate(-5deg); z-index: 2; }
+.v3-stack__img--2 { right: 0; bottom: 4%; transform: rotate(4deg); z-index: 1; }
+.intro .v3-stack__img { animation: reveal .8s var(--ease) both; }
+
+/* ---------- the rack page ---------- */
+.v3-rack { padding-top: clamp(36px, 5vw, 70px); }
+.v3-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: clamp(28px, 4vw, 48px); }
+.v3-chips .chip { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; text-decoration: none; background: var(--bone); color: var(--ink); border: 2px solid var(--ink); font-weight: 750; font-stretch: 112%; font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 50%, 100% 100%, 0 100%, 8px 50%); padding-left: 18px; padding-right: 18px; }
+.v3-chips .chip small { font-family: var(--mono); font-weight: 500; opacity: .7; }
+.v3-chips .chip[aria-current] { background: var(--ink); color: var(--bone); }
+.v3-chips .chip:hover { background: var(--p1); color: var(--on1); }
+.v3-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 40px 22px; }
+.v3-grid > li:nth-child(4n+2) .card { transform: translateY(18px); }
+.v3-campaign { display: grid; grid-template-columns: minmax(0, 360px) 1fr; gap: clamp(20px, 3vw, 48px); align-items: end; margin-bottom: clamp(40px, 5vw, 70px); }
+.v3-campaign .v3-photo { max-width: 360px; }
+
+/* ---------- product page ---------- */
+.v3-angles { padding-top: clamp(40px, 5vw, 80px); }
+.v3-angles .rail { margin-top: 0; }
+.v3-photos > li { width: clamp(230px, 24vw, 340px); padding: 14px 6px 22px; }
+.v3-photo--ai { background: var(--ink); }
+.v3-photo--ai figcaption { color: var(--bone); }
+.v3-trace { display: none; margin-top: 16px; font-family: var(--mono); font-size: 12px; }
+html.review .v3-trace { display: block; }
+.v3-look { padding-top: clamp(64px, 8vw, 120px); padding-bottom: clamp(64px, 8vw, 120px); }
+.v3-look__grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+.v3-look__title { font-size: clamp(36px, 5vw, 84px); }
+.v3-look__stage { position: relative; aspect-ratio: 4 / 5; background: var(--panel); clip-path: polygon(0 0, 88% 0, 100% 7%, 100% 100%, 0 100%); overflow: hidden; box-shadow: 12px 12px 0 var(--p4); }
+.v3-look__stage::before { content: ""; position: absolute; inset: 0; background: var(--tone); clip-path: polygon(0 70%, 100% 48%, 100% 100%, 0 100%); }
+.v3-look__stage img { position: absolute; z-index: 1; inset: 4% 6% 0; width: 88%; height: 96%; object-fit: contain; object-position: 50% 100%; filter: drop-shadow(0 18px 20px rgba(0,0,0,.4)); }
+.v3-look .labels a.wl, .v3-lookbook .labels a.wl { text-decoration: none; }
+.v3-look .labels a.wl:hover .wl__name, .v3-lookbook .labels a.wl:hover .wl__name { text-decoration: underline; text-underline-offset: 6px; }
+.v3-look .wl__name, .v3-lookbook .wl__name { font-size: clamp(20px, 2.2vw, 32px); }
+.v3-look__more { margin-top: 22px; font-family: var(--mono); font-size: 13px; }
+.v3-look__more a { color: inherit; }
+.v3-more { padding-top: clamp(48px, 6vw, 90px); }
+.v3-more .rail { margin-top: 0; }
+
+/* ---------- lookbook ---------- */
+.v3-lookbook { display: grid; gap: clamp(56px, 7vw, 110px); }
+.v3-lookrow { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: clamp(24px, 4vw, 64px); align-items: center; scroll-margin-top: 90px; }
+.v3-lookrow:nth-child(even) .v3-look__stage { order: 2; }
+.v3-lookrow__n { position: absolute; z-index: 2; left: 14px; top: 8px; font-weight: 900; font-stretch: 112%; font-size: clamp(44px, 5vw, 84px); line-height: 1; color: var(--bone); text-shadow: 3px 3px 0 var(--ink); }
+.v3-lookrow__angles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; max-width: 620px; }
+.v3-lookrow__angles .v3-photo { padding: 5px; }
+.v3-lookbook .labels { margin-top: 0; }
+
+/* ---------- finale on sub pages ---------- */
+.v3-finale { margin-top: 0; }
+
+@media (max-width: 999px) {
+  .v3-head.hero.lining { height: auto; min-height: 0; padding-bottom: 0; display: block; }
+  .v3-head .lining__copy { position: relative; top: auto; left: auto; right: auto; padding: 96px var(--gutter) 0; }
+  .v3-head .hero__panels--tall { top: 0; height: 100%; }
+  .v3-stack { position: relative; right: auto; top: auto; width: 100%; height: 72vw; margin-top: 18px; }
+  .v3-pdp.hero.lining { height: auto; padding-bottom: 150px; }
+  .v3-pdp__suit { position: relative; top: auto; bottom: auto; right: auto; transform: none; width: min(86vw, 520px); margin: 18px auto 0; }
+  .v3-pdp .labelbar { position: absolute; bottom: 18px; }
+  .v3-look__grid, .v3-lookrow, .v3-campaign { grid-template-columns: 1fr; }
+  .v3-lookrow:nth-child(even) .v3-look__stage { order: 0; }
+  .v3-look__stage { max-width: 420px; }
+  .v3-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 12px; }
+  .v3-grid > li:nth-child(4n+2) .card { transform: none; }
+  .v3-grid .card__name { font-size: 14px; }
+}
+@media (max-width: 640px) {
+  .v3-chips { flex-wrap: nowrap; overflow-x: auto; margin-left: calc(var(--gutter) * -1); margin-right: calc(var(--gutter) * -1); padding: 0 var(--gutter) 6px; scrollbar-width: none; }
+  .v3-chips .chip { flex: 0 0 auto; }
+  .v3-onbody .v3-photo { width: 74px; }
+}
+@media (prefers-reduced-motion: reduce) { .v3-photo, .v3-photo:hover { transition: none; } .intro .v3-stack__img { animation: none; } }
+/* nav: two more entries (The Rack, Lookbook) must not wrap the woven chapter index */
+@media (min-width: 1000px) { .nav__links { gap: 18px; } .nav__links a { white-space: nowrap; font-size: 12px; letter-spacing: .08em; } }
+@media (min-width: 1000px) and (max-width: 1240px) { .nav__links a b { display: none; } .nav__links { gap: 14px; } }
+/* product page, small screens: the hang-tag bar sits under the garment instead of over it */
+@media (max-width: 999px) {
+  .v3-pdp.hero.lining { padding-bottom: 28px; }
+  .v3-pdp .labelbar { position: relative; left: auto; right: auto; bottom: auto; margin: 18px var(--gutter) 0; max-width: none; }
+  .v3-pdp__suit { z-index: 3; }
+}
+/* sub-page openers reuse .lining, which is absolutely positioned inside the unzip stage on the home page */
+.v3-head.hero.lining { position: relative; inset: auto; clip-path: none; }
+
+/* ---------- sitewide refresh (2026-11-24): crew chips, campaign covers, spotted pieces ---------- */
+.crew__chips { margin-top: 12px; gap: 8px; }
+.crew__pair { display: inline-flex; align-items: stretch; }
+.crew__go { display: inline-grid; place-items: center; min-width: 36px; padding: 0 10px; background: var(--bone); color: var(--ink); text-decoration: none; font-weight: 800; }
+.crew__go:hover { background: var(--p1); color: var(--on1); }
+.town2__grid .ph.crew { grid-template-rows: 1fr auto auto; }
+.v3-stack__print { position: absolute; z-index: 1; left: 12%; top: 0; width: 56%; aspect-ratio: 4 / 5; height: auto; object-fit: cover; border: 9px solid #f6f4ef; box-shadow: 0 30px 60px rgba(0,0,0,.5); transform: rotate(-3deg); }
+.v3-stack__print--wide { left: 6%; width: 74%; aspect-ratio: 1 / 1; }
+.v3-stack .v3-stack__print ~ .v3-stack__img--1 { left: auto; right: 34%; bottom: -2%; width: 38%; transform: rotate(-4deg); z-index: 3; }
+.v3-stack .v3-stack__print ~ .v3-stack__img--2 { right: -2%; bottom: 2%; width: 40%; transform: rotate(5deg); z-index: 4; }
+.v3-spotted { display: grid; grid-template-columns: minmax(0, 300px) 1fr; gap: clamp(20px, 3vw, 48px); align-items: center; margin-bottom: clamp(40px, 5vw, 70px); }
+.v3-spotted .labels { margin-top: 18px; }
+.v3-spotted .wl { background-color: #121214; }
+.v3-spotted .wl__name { font-size: clamp(18px, 1.8vw, 26px); }
+@media (max-width: 999px) {
+  .v3-spotted { grid-template-columns: 1fr; }
+  .v3-spotted .v3-photo { max-width: 260px; }
+  .v3-stack__print { left: 4%; width: 64%; }
+  .v3-stack .v3-stack__print ~ .v3-stack__img--1 { right: 30%; width: 40%; }
+  .v3-stack .v3-stack__print ~ .v3-stack__img--2 { right: -2%; width: 42%; }
+}
